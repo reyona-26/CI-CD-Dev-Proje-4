@@ -1,0 +1,29 @@
+provider "aws" {
+  region = "us-east-2"
+}
+
+resource "aws_instance" "Jenkins-server" {
+  ami = "ami-0d50e9ae42eead5cd"
+  instance_type = "t2.micro"
+  key_name = "project-key"
+  security_groups = ["riyusec"]
+  user_data = file("jenkins-script.sh")
+  tags = {
+    Name = "Jenkins-server"
+  }
+}
+
+resource "aws_instance" "web" {
+  ami = "ami-0d50e9ae42eead5cd"
+  instance_type = "t2.micro"
+  key_name = "project-key"
+  security_groups = ["riyusec"]
+  user_data = file("Docker-script.sh")
+  tags = {
+    Name = "Docker-server"
+  }
+}
+
+
+
+#Jenkins installation script using terraform:
