@@ -218,3 +218,12 @@
   </prerequisites>
 
 </project>
+<reporting>
+    <plugins>
+        <plugin>
+            <artifactId>maven-checkstyle-plugin</artifactId>
+            <!-- Add other reporting plugins here -->
+        </plugin>
+    </plugins>
+</reporting>
+
